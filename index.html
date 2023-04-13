@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 01 - Todo List</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .todo-list {
+            list-style-type: decimal;
+        }
+
+        .todo-list .todo-list-item {
+            padding: .25rem 0;
+            border-bottom: 1px solid black;
+        }
+
+        /* 
+            In this way, the list won't show the decoration point 
+            because the default display type of <li> is "list-item"
+            And its default style, at least in chrome, is alongside a point.
+        */
+        /* .todo-list .todo-list-item {
+            display: flex;
+            justify-content: space-between;
+        } */
+
+        .todo-list .todo-list-item > div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #new-task-form {
+            display: flex;
+            gap: .5rem;
+        }
+
+        #new-task-form input {
+            flex: 1;
+        }
+
+        #new-task-form  button {
+            flex: 0 1 8em;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1> ToDo - List </h1>
+
+        <fieldset>
+            <legend>
+                <h2>Pending tasks</h2>
+            </legend>
+
+            <form action="javascript:;" id="new-task-form">
+                <input 
+                    id="taskNameInput"
+                    type="text" 
+                    name="taskName" 
+                    placeholder="Enter new task name"
+                >
+                <button>Add</button>
+            </form>
+
+            <ul class="todo-list">
+                <li class="todo-list-item">
+                    <div>Todo #1 <button>X</button></div>
+                </li>
+                <li class="todo-list-item">
+                    <div>Todo #2 <button>X</button></div>
+                </li>
+                <li class="todo-list-item">
+                    <div>Todo #3 <button>X</button></div>
+                </li>
+                <li class="todo-list-item">
+                    <div>Todo #4 <button>X</button></div>
+                </li>
+            </ul>
+        </fieldset>
+
+    </main>
+    
+    <script>
+        console.log("This script will be executed immediatily, at the page onload");
+
+        const form = document.getElementById('new-task-form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log("Submit button was pressed");
+
+            const inputs = form.querySelectorAll('input');
+            console.log("Form inputs: ", inputs);
+
+            const formValue = [...inputs]
+                                .reduce((a,i) => {
+                                    a[i.getAttribute("name")] = i.value;
+                                    return a;
+                                }, {});
+            console.log("Form value: ", formValue);
+        })
+    </script>
+</body>
+</html>
