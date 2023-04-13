@@ -59,11 +59,17 @@
                 <h2>Pending tasks</h2>
             </legend>
 
-            <form action="javascript:;" id="new-task-form">
+            <!-- action="javascript:;" -->
+            <form 
+                id="new-task-form"
+                method="POST"
+                action="submit-form"
+            >
                 <input 
                     id="taskNameInput"
                     type="text" 
                     name="taskName" 
+                    value=""
                     placeholder="Enter new task name"
                 >
                 <button>Add</button>
@@ -90,22 +96,22 @@
     <script>
         console.log("This script will be executed immediatily, at the page onload");
 
-        const form = document.getElementById('new-task-form');
+        // const form = document.getElementById('new-task-form');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log("Submit button was pressed");
+        // form.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     console.log("Submit button was pressed");
 
-            const inputs = form.querySelectorAll('input');
-            console.log("Form inputs: ", inputs);
+        //     const inputs = form.querySelectorAll('input');
+        //     console.log("Form inputs: ", inputs);
 
-            const formValue = [...inputs]
-                                .reduce((a,i) => {
-                                    a[i.getAttribute("name")] = i.value;
-                                    return a;
-                                }, {});
-            console.log("Form value: ", formValue);
-        })
+        //     const formValue = [...inputs]
+        //                         .reduce((a,i) => {
+        //                             a[i.getAttribute("name")] = i.value;
+        //                             return a;
+        //                         }, {});
+        //     console.log("Form value: ", formValue);
+        // })
     </script>
 </body>
 </html>
