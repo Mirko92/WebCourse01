@@ -7,8 +7,8 @@ function encodeHTMLEntities(text) {
 function cleanPreContent(text) {
   return text.split("\n")
     .map(row => {
-      if (row.includes('<')) {
-        const length = row.split('<')[0].length;
+      if (/^\s+/.test(row) || row.includes('<')) {
+        const length = row.split(/[\w<]/)[0].length;
         const spaces = length >= 4 ? length - 4 : 0;
 
         const x = row.replace(/^\s+/, " ".repeat(spaces))

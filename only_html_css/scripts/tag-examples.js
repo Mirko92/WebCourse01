@@ -15,8 +15,12 @@ const tagDocsItems = [
     tagName: "details",       description: "Semantic container: Defines additional details that the user can view or hide",
     example: `
     <details>
-      <summary>Visible text</summary>
-      <span>Hidden content</span>
+      <summary>
+        Visible text
+      </summary>
+      <span>
+        Hidden content
+      </span>
     </details>
     `
   },
@@ -29,7 +33,10 @@ const tagDocsItems = [
   { tagName: "img",           description: "Semantic container: The <img> element defines the actual image/illustration. "      },
   { 
     tagName: "input",         description: "Input element.",
-    example: `<input type="text" name="inputField" value="" />`
+    example: `<input type="text" 
+        name="inputField" 
+      value="" 
+    />`
   },
   { tagName: "label",         description: "Semantic container: Defines a label for an input; It's also usefull to expand focus area of an input."  },
   { tagName: "main",          description: "Semantic container: Specifies the main content of a document"  },
@@ -47,7 +54,7 @@ const tagDocsItems = [
     example: `
     <ul>
       <li>List item</li>
-      ... list items ...
+      <li>List item</li>
     </ul>
     `
   },
@@ -56,7 +63,7 @@ const tagDocsItems = [
     example: `
     <ol>
       <li>List item</li>
-      ... list items ...
+      <li>List item</li>
     </ol>
     `
   },
@@ -65,7 +72,9 @@ const tagDocsItems = [
     tagName: "fieldset",
     example: `
     <fieldset>
-      <legend>List item</legend>
+      <legend>
+        List item
+      </legend>
 
       <!-- content -->
     </fieldset>
@@ -84,7 +93,7 @@ const template = `
     <legend>{tagName}</legend>
     
     <pre><code class="language-html" id="{tagName}-example">{example}</code></pre>
-
+    
     <div class="description"> {description} </div>
 
     <!-- example -->
@@ -96,7 +105,9 @@ const menuElements = [];
 const tagElements  = [];
 
 function createTagElement(item) {
-  item.example ??= `<${item.tagName}>Tag Content</${item.tagName}>`;
+  item.example ??= `<${item.tagName}>
+      Tag Content
+  </${item.tagName}>`;
 
   const el = template
               .replaceAll("{tagName}", item.tagName)
