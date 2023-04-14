@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 25vh;
 }
 
 body {
@@ -91,4 +92,8 @@ a:active {
 }
 .j-c-c {
   justify-content: center;
+}
+
+.tag-element .description{
+  color: white;
 }

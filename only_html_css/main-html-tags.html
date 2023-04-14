@@ -9,14 +9,18 @@
   <link rel="stylesheet" href="./assets/prism.css">
 
   <style>
+    .sticky-menu {
+      position: sticky;
+      top: 22vh;
+    }
+
     .tag-list-menu ul{
       display: flex;
       flex-flow: column nowrap;
       gap: .5rem;
       list-style: none;
-      
-      position: sticky;
-      top: 22vh;
+      overflow: auto;
+      max-height: 70vh;
     }
 
     .tag-list-menu {
@@ -65,17 +69,17 @@
 
   <hr class="v-spacer">
 
-  <!-- <section class="d-flex j-c-c">
-    <input type="search" placeholder="Search">
-  </section> -->
-
   <main>
 
     <section class="tag-list-menu">
       
       <fieldset class="w100">
         <legend>Menu</legend>
-        <ul></ul>
+
+        <div class="sticky-menu">
+          <input type="search" placeholder="Search" id="search-input">
+          <ul></ul>
+        </div>
       </fieldset>
     </section>
 
